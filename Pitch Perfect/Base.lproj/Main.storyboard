@@ -52,12 +52,37 @@
                                     <action selector="stopAudio:" destination="4Ld-Hc-Pfp" eventType="touchUpInside" id="Sbf-hv-Zbj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hra-e5-qzU">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="chipmunk">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playChipmunkAudio:" destination="4Ld-Hc-Pfp" eventType="touchUpInside" id="iiE-1o-TpL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D68-DR-lrv">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="darthvader">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="220" y="350" width="155" height="100"/>
+                                </variation>
+                                <connections>
+                                    <action selector="playDarthVaderAudio:" destination="4Ld-Hc-Pfp" eventType="touchUpInside" id="DTD-kp-YZA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hra-e5-qzU" firstAttribute="leading" secondItem="Yqs-zb-soj" secondAttribute="leadingMargin" constant="20" id="1dZ-E2-bLT"/>
                             <constraint firstItem="cBi-a6-DFC" firstAttribute="top" secondItem="I82-XB-Vn2" secondAttribute="bottom" constant="50" id="ADe-z5-JjH"/>
                             <constraint firstItem="McW-6c-d7F" firstAttribute="top" secondItem="I82-XB-Vn2" secondAttribute="bottom" constant="50" id="FVj-xS-yzm"/>
+                            <constraint firstItem="hOm-4D-Zhx" firstAttribute="top" secondItem="hra-e5-qzU" secondAttribute="bottom" constant="150" id="FxB-wc-4q0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cBi-a6-DFC" secondAttribute="trailing" constant="20" id="KoX-a6-e4H"/>
+                            <constraint firstItem="hOm-4D-Zhx" firstAttribute="top" secondItem="D68-DR-lrv" secondAttribute="bottom" constant="150" id="TSW-RL-hbP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D68-DR-lrv" secondAttribute="trailing" constant="20" id="W7R-1j-7LF"/>
                             <constraint firstItem="hOm-4D-Zhx" firstAttribute="top" secondItem="Mvm-7H-FYI" secondAttribute="bottom" constant="50" id="cZg-Km-xgK"/>
                             <constraint firstAttribute="centerX" secondItem="Mvm-7H-FYI" secondAttribute="centerX" id="gf3-VN-fiq"/>
                             <constraint firstItem="McW-6c-d7F" firstAttribute="leading" secondItem="Yqs-zb-soj" secondAttribute="leadingMargin" constant="20" id="za5-KQ-PTb"/>
@@ -67,13 +92,19 @@
                                 <exclude reference="McW-6c-d7F"/>
                                 <exclude reference="cBi-a6-DFC"/>
                                 <exclude reference="Mvm-7H-FYI"/>
+                                <exclude reference="hra-e5-qzU"/>
+                                <exclude reference="D68-DR-lrv"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="FVj-xS-yzm"/>
                                 <exclude reference="za5-KQ-PTb"/>
                                 <exclude reference="ADe-z5-JjH"/>
                                 <exclude reference="KoX-a6-e4H"/>
+                                <exclude reference="1dZ-E2-bLT"/>
+                                <exclude reference="W7R-1j-7LF"/>
                                 <exclude reference="gf3-VN-fiq"/>
+                                <exclude reference="FxB-wc-4q0"/>
+                                <exclude reference="TSW-RL-hbP"/>
                                 <exclude reference="cZg-Km-xgK"/>
                             </mask>
                         </variation>
@@ -82,13 +113,19 @@
                                 <include reference="McW-6c-d7F"/>
                                 <include reference="cBi-a6-DFC"/>
                                 <include reference="Mvm-7H-FYI"/>
+                                <include reference="hra-e5-qzU"/>
+                                <include reference="D68-DR-lrv"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="FVj-xS-yzm"/>
                                 <include reference="za5-KQ-PTb"/>
                                 <include reference="ADe-z5-JjH"/>
                                 <include reference="KoX-a6-e4H"/>
+                                <include reference="1dZ-E2-bLT"/>
+                                <include reference="W7R-1j-7LF"/>
                                 <include reference="gf3-VN-fiq"/>
+                                <include reference="FxB-wc-4q0"/>
+                                <include reference="TSW-RL-hbP"/>
                                 <include reference="cZg-Km-xgK"/>
                             </mask>
                         </variation>
@@ -213,6 +250,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chipmunk" width="100" height="100"/>
+        <image name="darthvader" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
         <image name="rabbit" width="100" height="100"/>
         <image name="snail" width="100" height="100"/>
