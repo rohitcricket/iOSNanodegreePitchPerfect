@@ -25,15 +25,19 @@ class PlaySoundsViewController: UIViewController {
 //                var filePathUrl = NSURL.fileURLWithPath(filePath)
 //                audioPlayer = AVAudioPlayer(contentsOfURL: filePathUrl, error: nil)
 //                audioPlayer.enableRate = true
-//            } else {
-//                println("The filepath is empty")
+//           } else {
+//               println("The filepath is empty")
 //            }
+   
+    
         
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
         audioPlayer.enableRate = true
         
         audioEngine = AVAudioEngine()
         audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
+        
+
         
     }
     
