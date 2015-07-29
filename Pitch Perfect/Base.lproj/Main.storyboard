@@ -153,7 +153,6 @@
                                 </state>
                                 <connections>
                                     <action selector="stopAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YPq-5x-TbT"/>
-                                    <segue destination="4Ld-Hc-Pfp" kind="show" identifier="stopRecording" id="MUY-8B-pmi"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfD-2x-Rr5">
@@ -208,6 +207,7 @@
                         <outlet property="recordButton" destination="LEJ-as-A98" id="gbb-t7-TtI"/>
                         <outlet property="recordingInProgress" destination="LfD-2x-Rr5" id="IeW-ka-U2R"/>
                         <outlet property="stopButton" destination="w4S-eA-bry" id="dW0-f2-OQD"/>
+                        <segue destination="4Ld-Hc-Pfp" kind="show" identifier="stopRecording" id="4XB-OR-zEV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
