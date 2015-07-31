@@ -47,6 +47,8 @@ class PlaySoundsViewController: UIViewController {
         audioPlayer.rate = 0.5
         audioPlayer.currentTime = 0.0
         audioPlayer.play()
+        audioEngine.stop()
+        audioEngine.reset()
     }
     
     
@@ -55,6 +57,8 @@ class PlaySoundsViewController: UIViewController {
         audioPlayer.rate = 1.5
         audioPlayer.currentTime = 0.0
         audioPlayer.play()
+        audioEngine.stop()
+        audioEngine.reset()
     }
     
     
