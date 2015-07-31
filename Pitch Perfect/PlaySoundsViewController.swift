@@ -14,22 +14,17 @@ class PlaySoundsViewController: UIViewController {
     var audioPlayer: AVAudioPlayer!
     var receivedAudio: RecordedAudio!
     
+    var audioPlayer2: AVAudioPlayer! //for echo effects. Second player plays after a delay.
+    
     var audioEngine: AVAudioEngine!
     var audioFile: AVAudioFile!
     
+    var reverbPlayers:[AVAudioPlayer] = []
+    
+    let N:Int = 10
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-
-//            if var filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3"){
-//                var filePathUrl = NSURL.fileURLWithPath(filePath)
-//                audioPlayer = AVAudioPlayer(contentsOfURL: filePathUrl, error: nil)
-//                audioPlayer.enableRate = true
-//           } else {
-//               println("The filepath is empty")
-//            }
-   
-    
         
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
         audioPlayer.enableRate = true
@@ -37,11 +32,14 @@ class PlaySoundsViewController: UIViewController {
         audioEngine = AVAudioEngine()
         audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
         
-
+        audioPlayer2 = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
+        
+        for i in 0...N {
+            var temp = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil) 
+            reverbPlayers.append(temp)
+        }
         
     }
-    
-
     
 
     @IBAction func PlaySlowAudio(sender: UIButton) {
@@ -52,14 +50,12 @@ class PlaySoundsViewController: UIViewController {
     }
     
     
-    
     @IBAction func PlayFastAudio(sender: UIButton) {
         audioPlayer.stop()
         audioPlayer.rate = 1.5
         audioPlayer.currentTime = 0.0
         audioPlayer.play()
     }
-    
     
     
     @IBAction func playChipmunkAudio(sender: UIButton) {
@@ -93,6 +89,45 @@ class PlaySoundsViewController: UIViewController {
         audioPlayerNode.play()
     }
     
+    // Echo code from http://sandmemory.blogspot.com/2014/12/how-would-you-add-reverbecho-to-audio.html
+    
+    @IBAction func playEcho(sender: AnyObject) {
+        
+        audioPlayer.stop()
+        audioPlayer.currentTime = 0;
+        audioPlayer.play()
+        
+        let delay:NSTimeInterval = 0.1//100ms
+        var playtime:NSTimeInterval
+        playtime = audioPlayer2.deviceCurrentTime + delay
+        audioPlayer2.stop()
+        audioPlayer2.currentTime = 0
+        audioPlayer2.volume = 0.8;
+        audioPlayer2.playAtTime(playtime)
+        
+        // AVAudioPlayer instance has the playAtTime method, which allows us to schedule sound for future play, which can by used to make echoes and reverbations.
+        
+    }
+    
+    
+    // Reverbation code from http://sandmemory.blogspot.com/2014/12/how-would-you-add-reverbecho-to-audio.html
+    
+    
+    @IBAction func playReverb(sender: AnyObject) {
+        
+        let delay:NSTimeInterval = 0.02 //20ms produces detectable delays
+        for i in 0...N {
+            var curDelay:NSTimeInterval = delay*NSTimeInterval(i)
+            var player:AVAudioPlayer = reverbPlayers[i]
+            //M_E is e=2.718...
+            //dividing N by 2 made it sound ok for the case N=10
+            var exponent:Double = -Double(i)/Double(N/2)
+            var volume = Float(pow(Double(M_E), exponent))
+            player.volume = volume
+            player.playAtTime(player.deviceCurrentTime + curDelay)
+        }
+    }
+    
     
     @IBAction func stopAudio(sender: UIButton) {
         audioPlayer.stop()
@@ -103,16 +138,6 @@ class PlaySoundsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
