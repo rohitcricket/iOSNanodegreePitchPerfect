@@ -41,41 +41,53 @@ class PlaySoundsViewController: UIViewController {
         
     }
     
-
-    @IBAction func PlaySlowAudio(sender: UIButton) {
-        audioPlayer.stop()
-        audioPlayer.rate = 0.5
-        audioPlayer.currentTime = 0.0
-        audioPlayer.play()
+    
+    func stopAudioEngineAndPlayer(){ //abstracted away repeated code inside a function
         audioEngine.stop()
         audioEngine.reset()
+        audioPlayer.stop()
+    }
+    
+    func setAudioPlayRate(rate: Float){ // abstracted away repeated code inside a function
+        stopAudioEngineAndPlayer()
+        audioPlayer.rate = rate
+        audioPlayer.currentTime = 0.0
+        audioPlayer.play()
+    }
+    
+
+    @IBAction func PlaySlowAudio(sender: UIButton) {
+        
+        setAudioPlayRate(0.5) // set audio rate to 0.5 for slow speed.
     }
     
     
     @IBAction func PlayFastAudio(sender: UIButton) {
-        audioPlayer.stop()
-        audioPlayer.rate = 1.5
-        audioPlayer.currentTime = 0.0
-        audioPlayer.play()
-        audioEngine.stop()
-        audioEngine.reset()
+        
+        setAudioPlayRate(1.5)
+        
     }
     
     
     @IBAction func playChipmunkAudio(sender: UIButton) {
+
+        stopAudioEngineAndPlayer()
         playAudioWithVariablePitch(1000)
+
     }
     
     
     @IBAction func playDarthVaderAudio(sender: UIButton) {
+
+        stopAudioEngineAndPlayer()
         playAudioWithVariablePitch(-1000)
+
     }
     
     
     func playAudioWithVariablePitch(pitch: Float){
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
+
+        stopAudioEngineAndPlayer()
         
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
@@ -96,6 +108,8 @@ class PlaySoundsViewController: UIViewController {
     // Echo code from http://sandmemory.blogspot.com/2014/12/how-would-you-add-reverbecho-to-audio.html
     
     @IBAction func playEcho(sender: AnyObject) {
+        
+        stopAudioEngineAndPlayer()
         
         audioPlayer.stop()
         audioPlayer.currentTime = 0;
@@ -119,6 +133,8 @@ class PlaySoundsViewController: UIViewController {
     
     @IBAction func playReverb(sender: AnyObject) {
         
+        stopAudioEngineAndPlayer()
+        
         let delay:NSTimeInterval = 0.02 //20ms produces detectable delays
         for i in 0...N {
             var curDelay:NSTimeInterval = delay*NSTimeInterval(i)
@@ -140,8 +156,9 @@ class PlaySoundsViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+       
     }
+    
 
 
 }

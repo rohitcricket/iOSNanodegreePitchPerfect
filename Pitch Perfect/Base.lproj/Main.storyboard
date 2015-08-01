@@ -176,9 +176,6 @@
                                 <state key="normal" image="microphonePurple">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="150" y="250" width="100" height="100"/>
-                                </variation>
                                 <connections>
                                     <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zfo-Lb-FHR"/>
                                 </connections>
@@ -205,8 +202,7 @@
                                         <exclude reference="D8V-5V-xlv"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="167" y="362" width="67" height="17"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="D8V-5V-xlv"/>
                                     </mask>
@@ -214,18 +210,12 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="kym-7f-cOG">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="72" width="368" height="170"/>
-                                </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtT-P6-42n">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.081215621197181287" green="0.20039386776160195" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="138" y="407" width="124" height="21"/>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -252,18 +242,18 @@
                                 <exclude reference="TtT-P6-42n"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="twA-Nk-SaV"/>
+                                <exclude reference="2xp-HL-8vx"/>
+                                <exclude reference="oOY-tS-Q2f"/>
+                                <exclude reference="8ki-cf-iel"/>
+                                <exclude reference="GOR-br-wdS"/>
+                                <exclude reference="b2d-Cz-qaO"/>
+                                <exclude reference="cmg-Hb-o2h"/>
+                                <exclude reference="ved-Gw-0FA"/>
                                 <exclude reference="CxP-43-qOZ"/>
                                 <exclude reference="U79-PZ-Hgi"/>
                                 <exclude reference="jbK-T7-m2o"/>
                                 <exclude reference="me9-EG-Znh"/>
-                                <exclude reference="GOR-br-wdS"/>
-                                <exclude reference="b2d-Cz-qaO"/>
-                                <exclude reference="2xp-HL-8vx"/>
-                                <exclude reference="oOY-tS-Q2f"/>
-                                <exclude reference="8ki-cf-iel"/>
-                                <exclude reference="cmg-Hb-o2h"/>
-                                <exclude reference="ved-Gw-0FA"/>
-                                <exclude reference="twA-Nk-SaV"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -275,18 +265,18 @@
                                 <include reference="TtT-P6-42n"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="twA-Nk-SaV"/>
+                                <include reference="2xp-HL-8vx"/>
+                                <include reference="oOY-tS-Q2f"/>
+                                <include reference="8ki-cf-iel"/>
+                                <include reference="GOR-br-wdS"/>
+                                <include reference="b2d-Cz-qaO"/>
+                                <include reference="cmg-Hb-o2h"/>
+                                <include reference="ved-Gw-0FA"/>
                                 <include reference="CxP-43-qOZ"/>
                                 <include reference="U79-PZ-Hgi"/>
                                 <include reference="jbK-T7-m2o"/>
                                 <include reference="me9-EG-Znh"/>
-                                <include reference="GOR-br-wdS"/>
-                                <include reference="b2d-Cz-qaO"/>
-                                <include reference="2xp-HL-8vx"/>
-                                <include reference="oOY-tS-Q2f"/>
-                                <include reference="8ki-cf-iel"/>
-                                <include reference="cmg-Hb-o2h"/>
-                                <include reference="ved-Gw-0FA"/>
-                                <include reference="twA-Nk-SaV"/>
                             </mask>
                         </variation>
                     </view>
@@ -330,6 +320,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gPk-eB-ecN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Poh-N3-xPO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
